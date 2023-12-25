@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body,
+html {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.title {
+    font-size: 50px;
+    transition: 1s;
+    cursor: default;
+}
+
+.title:hover {
+    transform: scale(1.1);
+    color: #faa3e4;
+    transition: 1s;
+}
+
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lobster', sans-serif;
+    height: 15%;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: black;
+    width: 100%;
+    align-items: center;
+    height: 5%;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: scrollImages 20s linear infinite;
+}
+
+.image {
+    height: 100%;
+    width: auto;
+}
+
+.image-container {
+    display: inline-block;
+}
+
+@keyframes scrollImages {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    transition: 0.4s;
+    margin-top: 5px;
+}
+
+.icon-container img {
+    margin-top: 5px;
+    width: 20px;
+    height: auto;
+    margin: 0;
+}
+
+.icon-container:hover {
+    color: #ffffff;
+    background-image: -webkit-linear-gradient(45deg, #3369ff 25%, #d629d3 51%, #fa8e2f 74%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.menu-icon {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-icon img {
+    width: 40px;
+    height: auto;
+}
+
+@media only screen and (max-width: 775px) {
+    .title {
+        font-size: 30px;
+    }
+    nav {
+        height: 20%;
+        flex-direction: column;
+        display: none;
+    }
+    .menu-icon {
+        display: flex;
+    }
+    main {
+        height: 85%;
+    }
+}

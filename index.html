@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>migaw_a</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Julia Jarzębak</h1>
+        <a class="icon-container" href="https://www.instagram.com/migaw_a/">
+            <img src="instagram-icon.svg">
+            <p>@migaw_a</p>
+        </a>
+        <div class="menu-icon" onclick="revealMenu()">
+            <img src="menu-icon.svg">
+        </div>
+    </header>
+    <nav class="menu">
+        <div class="nav-item">
+            <p>Imprezy okolicznościowe</p>
+        </div>
+        <div class="nav-item">
+            <p>Sesje portretowe</p>
+        </div>
+        <div class="nav-item">
+            <p>Sesje rodzinne</p>
+        </div>
+        <div class="nav-item">
+            <p>Sesje dla par</p>
+        </div>
+    </nav>
+    <main id="container">
+        <div class="image-container">
+            <img class="image" src="media/1.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/2.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/3.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/4.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/5.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/1.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/2.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/3.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/4.jpg" alt="">
+        </div>
+        <div class="image-container">
+            <img class="image" src="media/5.jpg" alt="">
+        </div>
+    </main>
+</body>
+<script>
+    let isMenuActive = false;
+
+    function revealMenu() {
+        let navElement = document.querySelector("nav");
+        let container = document.getElementById("container");
+        if (isMenuActive) {
+            isMenuActive = false;
+            navElement.style.display = "none";
+            container.style.height = "85%";
+
+        } else {
+            isMenuActive = true;
+            navElement.style.display = "flex";
+            container.style.height = "65%";
+        }
+    }
+</script>
+
+</html>

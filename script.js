@@ -1,0 +1,1 @@
+document.querySelector(':root').style.setProperty('--mainWidth', document.getElementById())
