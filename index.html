@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>migaw_a</title>
+    <title>Fotograf Julia Jarzębak</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="media/portretowe/2.jpg" type="image/x-icon">
 </head>
 
 <body>
@@ -20,53 +21,55 @@
         </div>
     </header>
     <nav class="menu">
-        <div class="nav-item">
-            <p>Imprezy okolicznościowe</p>
+        <div class="nav-item" id="Okolicznosciowe">
+            <a onclick="createGallery('Okolicznosciowe')">Imprezy okolicznościowe</a>
         </div>
-        <div class="nav-item">
-            <p>Sesje portretowe</p>
+        <div class="nav-item" id="Portretowe">
+            <a onclick="createGallery('Portretowe')">Sesje portretowe</a>
         </div>
-        <div class="nav-item">
-            <p>Sesje rodzinne</p>
+        <div class="nav-item" id="Rodzinne">
+            <a onclick="createGallery('Rodzinne')">Sesje rodzinne</a>
         </div>
-        <div class="nav-item">
-            <p>Sesje dla par</p>
+        <div class="nav-item" id="Pary">
+            <a onclick="createGallery('Pary')">Sesje dla par</a>
         </div>
     </nav>
-    <main id="container">
-        <div class="image-container">
-            <img class="image" src="media/1.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/2.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/3.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/4.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/5.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/1.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/2.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/3.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/4.jpg" alt="">
-        </div>
-        <div class="image-container">
-            <img class="image" src="media/5.jpg" alt="">
-        </div>
+
+    <main id="container" onclick="ImageMovement()">
     </main>
+
+    <footer>
+        <p>tel. +48 690 962 135</p>
+        <p>email: migawa@gmail.com</p>
+    </footer>
 </body>
 <script>
+    function createGallery(photoSource) {
+
+        document.getElementById("container").innerHTML = "";
+        const galleryLenght = 5;
+        console.log(`Folder:${photoSource}`)
+        for (j = 0; j < 2; j++) {
+
+            for (i = 1; i <= galleryLenght; i++) {
+                document.getElementById("container").innerHTML +=
+                    `
+                <div class="image-container">
+                    <img class="image" src="media/${photoSource}/${i}.jpg" alt="couldn't load an image">
+                </div>
+                    `
+            }
+
+        }
+
+        //backgorund change
+
+
+
+    }
+
+    createGallery("Portretowe");
+
     let isMenuActive = false;
 
     function revealMenu() {
@@ -75,13 +78,28 @@
         if (isMenuActive) {
             isMenuActive = false;
             navElement.style.display = "none";
-            container.style.height = "85%";
+            // container.style.height = "75%";
 
         } else {
             isMenuActive = true;
             navElement.style.display = "flex";
-            container.style.height = "65%";
+            // container.style.height = "50%";
         }
+    }
+
+    var isAnimationActive = true;
+
+    function ImageMovement() {
+        if (isAnimationActive) {
+            document.getElementById("container").style.webkitAnimationPlayState = "paused";
+            isAnimationActive = false;
+            console.log("stop")
+        } else {
+            console.log("start")
+            isAnimationActive = true;
+            document.getElementById("container").style.webkitAnimationPlayState = "running";
+        }
+
     }
 </script>
 
