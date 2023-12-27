@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <h1 class="title">Julia Jarzębak</h1>
+        <h1 class="title" onclick="createGallery('MainPage', 5, '20s')">Julia Jarzębak</h1>
         <a class="icon-container" href="https://www.instagram.com/migaw_a/">
             <img src="instagram-icon.svg">
             <p>@migaw_a</p>
@@ -22,33 +22,33 @@
     </header>
     <nav class="menu">
         <div class="nav-item" id="Okolicznosciowe">
-            <a onclick="createGallery('Okolicznosciowe')">Imprezy okolicznościowe</a>
+            <a onclick="createGallery('Okolicznosciowe',5, '20s')">Imprezy okolicznościowe</a>
         </div>
         <div class="nav-item" id="Portretowe">
-            <a onclick="createGallery('Portretowe')">Sesje portretowe</a>
+            <a onclick="createGallery('Portretowe',5, '20s')">Sesje portretowe</a>
         </div>
         <div class="nav-item" id="Rodzinne">
-            <a onclick="createGallery('Rodzinne')">Sesje rodzinne</a>
+            <a onclick="createGallery('Rodzinne',5, '20s')">Sesje rodzinne</a>
         </div>
         <div class="nav-item" id="Pary">
-            <a onclick="createGallery('Pary')">Sesje dla par</a>
+            <a onclick="createGallery('Pary', 5, '20s')">Sesje dla par</a>
         </div>
     </nav>
-
-    <main id="container" onclick="ImageMovement()">
+    <main id="container" onclick="imageMovement()">
     </main>
-
     <footer>
         <p>tel. +48 690 962 135</p>
         <p>email: migawa@gmail.com</p>
     </footer>
 </body>
 <script>
-    function createGallery(photoSource) {
+    let isMenuActive = false;
+    let isAnimationActive = true;
+    const r = document.querySelector(':root');
+
+    function createGallery(photoSource, galleryLenght, speed) {
 
         document.getElementById("container").innerHTML = "";
-        const galleryLenght = 5;
-        console.log(`Folder:${photoSource}`)
         for (j = 0; j < 2; j++) {
 
             for (i = 1; i <= galleryLenght; i++) {
@@ -59,18 +59,16 @@
                 </div>
                     `
             }
-
         }
 
-        //backgorund change
+        disableMenuItemsSelection();
+        if (photoSource == "Okolicznosciowe" || photoSource == "Portretowe" || photoSource == "Rodzinne" || photoSource == "Pary") {
 
-
+            underlineActiveNavItem(photoSource);
+        }
+        setAnimationSpeed(speed);
 
     }
-
-    createGallery("Portretowe");
-
-    let isMenuActive = false;
 
     function revealMenu() {
         let navElement = document.querySelector("nav");
@@ -87,20 +85,44 @@
         }
     }
 
-    var isAnimationActive = true;
+    function imageMovement() {
 
-    function ImageMovement() {
         if (isAnimationActive) {
+
             document.getElementById("container").style.webkitAnimationPlayState = "paused";
             isAnimationActive = false;
-            console.log("stop")
+
         } else {
-            console.log("start")
-            isAnimationActive = true;
+
             document.getElementById("container").style.webkitAnimationPlayState = "running";
+            isAnimationActive = true;
+
         }
 
     }
+
+    function disableMenuItemsSelection() {
+        document.getElementById("Okolicznosciowe").classList.remove("item-selected")
+        document.getElementById("Portretowe").classList.remove("item-selected")
+        document.getElementById("Rodzinne").classList.remove("item-selected")
+        document.getElementById("Pary").classList.remove("item-selected")
+
+    }
+
+    function underlineActiveNavItem(activeMenuItem) {
+
+        document.getElementById(activeMenuItem).classList.add("item-selected")
+
+    }
+
+    function setAnimationSpeed(speed) {
+
+        r.style.setProperty('--animationSpeed', speed);
+
+    }
+
+
+    createGallery("MainPage", 5, '20s');
 </script>
 
 </html>

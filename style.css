@@ -68,7 +68,7 @@ main {
     height: 70%;
     overflow: hidden;
     white-space: nowrap;
-    animation: scrollImages 20s linear infinite;
+    animation: scrollImages var(--animationSpeed) linear infinite;
     background-color: black;
 }
 
@@ -138,6 +138,10 @@ footer {
 .menu-icon img {
     width: 40px;
     height: auto;
+}
+
+.item-selected a {
+    border-bottom: black 2px solid;
 }
 
 @media only screen and (max-width: 775px) {
