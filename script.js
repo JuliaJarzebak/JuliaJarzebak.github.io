@@ -17,6 +17,26 @@ document.querySelectorAll('.grid img').forEach((img, index) => {
     sounds.push(hoverSound); // Store preloaded sounds
 });
 
+// Preload all images
+const preloadImages = () => {
+    const images = [];
+    document.querySelectorAll('.grid img').forEach((img) => {
+        const original = img.src;
+        const alt = img.dataset.alt;
+
+        // Preload original image
+        const originalImage = new Image();
+        originalImage.src = original;
+        images.push(originalImage);
+
+        // Preload alternate image
+        const altImage = new Image();
+        altImage.src = alt;
+        images.push(altImage);
+    });
+};
+preloadImages();
+
 // Add event listeners for hover effects
 document.querySelectorAll('.grid img').forEach((img, index) => {
     const original = img.src;
