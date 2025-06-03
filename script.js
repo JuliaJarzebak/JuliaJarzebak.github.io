@@ -37,19 +37,46 @@ const preloadImages = () => {
 };
 preloadImages();
 
-// Add event listeners for hover effects
+// Add event listeners for hover/touch effects
 document.querySelectorAll('.grid img').forEach((img, index) => {
     const original = img.src;
     const alt = img.dataset.alt;
 
+    // Handle touchstart for iOS devices
+    img.addEventListener('touchstart', () => {
+        img.src = alt;
+        const sound = sounds[index];
+        if (sound) {
+            sound.currentTime = 0; // Reset sound to the beginning
+            sound.play().catch((err) => console.error('Playback error:', err));
+        }
+    });
+
+    img.addEventListener('touchend', () => {
+        img.src = original; // Restore the original image
+        const sound = sounds[index];
+        if (sound) {
+            sound.pause(); // Pause the sound
+            sound.currentTime = 0; // Reset sound to the beginning
+        }
+    });
+
+    // Handle mouse events for non-touch devices
     img.addEventListener('mouseenter', () => {
         img.src = alt;
-        sounds[index].currentTime = 0; // Reset sound to the beginning
-        sounds[index].play().catch((err) => console.error('Playback error:', err));
+        const sound = sounds[index];
+        if (sound) {
+            sound.currentTime = 0; // Reset sound to the beginning
+            sound.play().catch((err) => console.error('Playback error:', err));
+        }
     });
+
     img.addEventListener('mouseleave', () => {
         img.src = original; // Restore the original image
-        sounds[index].pause(); // Pause the sound
-        sounds[index].currentTime = 0; // Reset sound to the beginning
+        const sound = sounds[index];
+        if (sound) {
+            sound.pause(); // Pause the sound
+            sound.currentTime = 0; // Reset sound to the beginning
+        }
     });
 });
