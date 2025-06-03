@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Lexend+Tera:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #202020;
+  background: beige;
   display: flex;
   flex-direction: column;
   width: 100%;
+  color: #1a150c;
 }
 
 .grid {
@@ -24,10 +26,11 @@ body {
 
 .grid-item {
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background: #303030;
+  background: beige;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: #fff solid 6px;
 }
 
 .grid-item:hover {
@@ -39,7 +42,7 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 header {
@@ -48,17 +51,11 @@ header {
   display: flex;
   width: 100%;
   height: 10%;
-  color: aliceblue;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Libre Baskerville", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 50px;
-  background: #202020;
-  /* Ensures the header has a background */
   padding: 20px 0 0 0;
-  /* Adds padding to prevent content overlap */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Optional: adds a subtle shadow */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -67,7 +64,7 @@ header {
 .headerText {
   padding: 0px;
   margin: 0;
-  font-family: "Lexend Tera", sans-serif;
+  font-family: "Libre Baskerville", serif;
   font-weight: 900;
   font-size: 60px;
 }
@@ -76,7 +73,7 @@ header {
   padding: 0px;
   margin: 0;
   font-size: large;
-  font-family: "Lexend Tera", sans-serif;
+  font-family: "Libre Baskerville", serif;
 
 }
 
@@ -91,11 +88,11 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 10000;
+  font-family: "Libre Baskerville", serif;
 }
 
 .modal-content {
-  background: #303030;
-  color: #fff;
+  background: beige;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -103,30 +100,33 @@ header {
 }
 
 .modal-content h1 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-weight: 700;
 }
 
 .modal-content p {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin: 0 0 5px 0;
 }
 
 .modal-content button {
   padding: 10px 20px;
-  font-size: 16px;
-  background: #505050;
+  font-size: 30px;
+  background: #2a261e;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-family: "Libre Baskerville", serif;
+  margin-top: 30px;
 }
 
 .modal-content button:hover {
-  background: #707070;
+  background: #625846;
 }
+
 
 @media (max-width: 1400px) {
   .grid {
@@ -135,7 +135,6 @@ header {
 
   .headerText {
 
-    font-family: "Lexend Tera", sans-serif;
     font-weight: 900;
     font-size: 40px;
   }
@@ -153,7 +152,6 @@ header {
 
   .headerText {
 
-    font-family: "Lexend Tera", sans-serif;
     font-weight: 900;
     font-size: 28px;
   }
@@ -161,7 +159,6 @@ header {
   .headerSubText {
 
     font-size: 20px;
-    font-family: "Lexend Tera", sans-serif;
 
   }
 }
@@ -179,7 +176,6 @@ header {
 
   .headerText {
 
-    font-family: "Lexend Tera", sans-serif;
     font-weight: 900;
     font-size: 15px;
   }
@@ -187,7 +183,6 @@ header {
   .headerSubText {
 
     font-size: 10px;
-    font-family: "Lexend Tera", sans-serif;
 
   }
 }
