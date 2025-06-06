@@ -66,7 +66,7 @@ header {
   margin: 0;
   font-family: "Libre Baskerville", serif;
   font-weight: 900;
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .headerSubText {
@@ -97,6 +97,10 @@ header {
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .modal-content h1 {
@@ -125,6 +129,20 @@ header {
 
 .modal-content button:hover {
   background: #625846;
+}
+
+.icon {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease; /* Add smooth animation */
+}
+
+.icon:hover {
+  transform: scale(1.2); /* Make the image 20% bigger on hover */
 }
 
 

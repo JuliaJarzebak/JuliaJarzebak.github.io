@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('intro-modal');
-    const startButton = document.getElementById('start-button');
+    const closeImage = document.querySelector('.icon'); // Target the image used to close the modal
 
-    startButton.addEventListener('click', () => {
+    // Hide modal when clicking the close image
+    closeImage.addEventListener('click', () => {
+        modal.style.display = 'none'; // Hide the modal
+    });
+
+    // Hide modal when clicking anywhere inside the modal (including modal content)
+    modal.addEventListener('click', () => {
         modal.style.display = 'none'; // Hide the modal
     });
 });
