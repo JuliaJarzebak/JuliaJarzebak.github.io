@@ -93,3 +93,5 @@ document.querySelectorAll('.grid img').forEach((img, index) => {
         }
     });
 });
+
+//jak ktoś wpadł na pomysł przeglądać ten kod to odradzam bo jest pisany na szybko
