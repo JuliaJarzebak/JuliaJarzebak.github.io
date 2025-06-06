@@ -67,6 +67,12 @@ header {
   font-family: "Libre Baskerville", serif;
   font-weight: 900;
   font-size: 40px;
+  cursor: pointer; /* Add pointer cursor for interactivity */
+  transition: transform 0.5s ease; /* Smooth hover animation */
+}
+
+.headerText:hover {
+  transform: scale(1.05); /* Make the header text slightly bigger on hover */
 }
 
 .headerSubText {

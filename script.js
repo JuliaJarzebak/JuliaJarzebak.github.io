@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('intro-modal');
     const closeImage = document.querySelector('.icon'); // Target the image used to close the modal
+    const headerText = document.querySelector('.headerText'); // Target the header text
 
     // Hide modal when clicking the close image
     closeImage.addEventListener('click', () => {
@@ -10,6 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide modal when clicking anywhere inside the modal (including modal content)
     modal.addEventListener('click', () => {
         modal.style.display = 'none'; // Hide the modal
+    });
+
+    // Show modal when clicking the header text
+    headerText.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent conflict with page click listener
+        modal.style.display = 'flex'; // Show the modal
     });
 });
 
