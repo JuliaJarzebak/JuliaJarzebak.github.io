@@ -245,11 +245,6 @@ header {
   }
 
   .fullscreen-btn {
-    top: auto;
-    bottom: 10px; /* Move to the bottom-right corner */
-    right: 10px;
-    width: 30px; /* Adjust size for very small screens */
-    height: 30px;
-    font-size: 14px;
+    display: none; /* Hide fullscreen button on mobile devices */
   }
 }
