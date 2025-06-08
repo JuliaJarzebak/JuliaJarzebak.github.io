@@ -18,6 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation(); // Prevent conflict with page click listener
         modal.style.display = 'flex'; // Show the modal
     });
+
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    fullscreenBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch((err) => {
+                console.error(`Error attempting to enable fullscreen: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen().catch((err) => {
+                console.error(`Error attempting to exit fullscreen: ${err.message}`);
+            });
+        }
+    });
 });
 
 // Preload all sounds
